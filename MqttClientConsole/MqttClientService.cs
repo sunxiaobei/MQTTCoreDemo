@@ -87,7 +87,7 @@ namespace MqttClientConsole
         {
             var message = new MqttApplicationMessage
             {
-                Topic = "topic_01",
+                Topic = "topic_02",
                 Payload = Encoding.Default.GetBytes(data),
                 QualityOfServiceLevel = MqttQualityOfServiceLevel.AtLeastOnce,
                 Retain = true  // 服务端是否保留消息。true为保留，如果有新的订阅者连接，就会立马收到该消息。
