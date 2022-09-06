@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 builder.Services.AddHostedService<MqttHostService>();  // 注册服务，启动时运行MQTT
 
 var app = builder.Build();

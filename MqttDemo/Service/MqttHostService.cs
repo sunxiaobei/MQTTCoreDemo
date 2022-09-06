@@ -41,6 +41,11 @@ namespace MqttDemo.Service
             return Task.CompletedTask;
         }
 
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            return Task.CompletedTask;
+        }
+
         /// <summary>
         /// 客户端订阅主题事件
         /// </summary>
@@ -150,10 +155,6 @@ namespace MqttDemo.Service
             return Task.CompletedTask;
         }
 
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            return Task.CompletedTask;
-        }
     }
 }
 
