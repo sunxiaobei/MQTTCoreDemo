@@ -17,7 +17,7 @@ namespace MqttClientConsole
             var optionsBuilder = new MqttClientOptionsBuilder()
                 .WithTcpServer("127.0.0.1", 10086) // 要访问的mqtt服务端的 ip 和 端口号
                 .WithCredentials("admin", "123456") // 要访问的mqtt服务端的用户名和密码
-                .WithClientId("testclient01") // 设置客户端id
+                .WithClientId("testclient02") // 设置客户端id
                 .WithCleanSession()
                 .WithTls(new MqttClientOptionsBuilderTlsParameters
                 {
@@ -60,10 +60,10 @@ namespace MqttClientConsole
             // MqttQualityOfServiceLevel: （QoS）:  0 最多一次，接收者不确认收到消息，并且消息不被发送者存储和重新发送提供与底层 TCP 协议相同的保证。
             // 1: 保证一条消息至少有一次会传递给接收方。发送方存储消息，直到它从接收方收到确认收到消息的数据包。一条消息可以多次发送或传递。
             // 2: 保证每条消息仅由预期的收件人接收一次。级别2是最安全和最慢的服务质量级别，保证由发送方和接收方之间的至少两个请求/响应（四次握手）。
-            _mqttClient.SubscribeAsync("topic_01", MqttQualityOfServiceLevel.AtLeastOnce);
+            _mqttClient.SubscribeAsync("topic_02", MqttQualityOfServiceLevel.AtLeastOnce);
 
-            //_mqttClient.UnsubscribeAsync("topic_02");  // 取消订阅
-            //_mqttClient.SubscribeAsync("topic_02", MqttQualityOfServiceLevel.AtLeastOnce); // 订阅消息
+            _mqttClient.UnsubscribeAsync("topic_02");  // 取消订阅
+            _mqttClient.SubscribeAsync("topic_02", MqttQualityOfServiceLevel.AtLeastOnce); // 订阅消息
 
             return Task.CompletedTask;
         }
@@ -87,7 +87,7 @@ namespace MqttClientConsole
         {
             var message = new MqttApplicationMessage
             {
-                Topic = "topic_02",
+                Topic = "topic_01",
                 Payload = Encoding.Default.GetBytes(data),
                 QualityOfServiceLevel = MqttQualityOfServiceLevel.AtLeastOnce,
                 Retain = true  // 服务端是否保留消息。true为保留，如果有新的订阅者连接，就会立马收到该消息。
