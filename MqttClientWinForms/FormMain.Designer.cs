@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSendMessage = new System.Windows.Forms.Button();
-            this.btnSubscribe = new System.Windows.Forms.Button();
             this.textSendMassage = new System.Windows.Forms.TextBox();
             this.textKey = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,6 +46,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rtBoxLog = new System.Windows.Forms.RichTextBox();
+            this.btnSubscribe = new System.Windows.Forms.Button();
+            this.btnUnSubscribe = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +55,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnUnSubscribe);
             this.panel1.Controls.Add(this.btnSendMessage);
             this.panel1.Controls.Add(this.btnSubscribe);
             this.panel1.Controls.Add(this.textSendMassage);
@@ -87,16 +89,7 @@
             this.btnSendMessage.TabIndex = 48;
             this.btnSendMessage.Text = "发送";
             this.btnSendMessage.UseVisualStyleBackColor = true;
-            // 
-            // btnSubscribe
-            // 
-            this.btnSubscribe.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSubscribe.Location = new System.Drawing.Point(488, 144);
-            this.btnSubscribe.Name = "btnSubscribe";
-            this.btnSubscribe.Size = new System.Drawing.Size(155, 37);
-            this.btnSubscribe.TabIndex = 47;
-            this.btnSubscribe.Text = "订阅";
-            this.btnSubscribe.UseVisualStyleBackColor = true;
+            this.btnSendMessage.Click += new System.EventHandler(this.btnSendMessage_Click);
             // 
             // textSendMassage
             // 
@@ -144,6 +137,7 @@
             this.btnDisConnect.TabIndex = 42;
             this.btnDisConnect.Text = "断开连接";
             this.btnDisConnect.UseVisualStyleBackColor = true;
+            this.btnDisConnect.Click += new System.EventHandler(this.btnDisConnect_Click);
             // 
             // btnConnect
             // 
@@ -154,6 +148,7 @@
             this.btnConnect.TabIndex = 41;
             this.btnConnect.Text = "连接服务端";
             this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // textUserPwd
             // 
@@ -251,6 +246,27 @@
             this.rtBoxLog.TabIndex = 34;
             this.rtBoxLog.Text = "";
             // 
+            // btnSubscribe
+            // 
+            this.btnSubscribe.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSubscribe.Location = new System.Drawing.Point(488, 144);
+            this.btnSubscribe.Name = "btnSubscribe";
+            this.btnSubscribe.Size = new System.Drawing.Size(72, 37);
+            this.btnSubscribe.TabIndex = 47;
+            this.btnSubscribe.Text = "订阅";
+            this.btnSubscribe.UseVisualStyleBackColor = true;
+            this.btnSubscribe.Click += new System.EventHandler(this.btnSubscribe_Click);
+            // 
+            // btnUnSubscribe
+            // 
+            this.btnUnSubscribe.Location = new System.Drawing.Point(566, 144);
+            this.btnUnSubscribe.Name = "btnUnSubscribe";
+            this.btnUnSubscribe.Size = new System.Drawing.Size(77, 37);
+            this.btnUnSubscribe.TabIndex = 49;
+            this.btnUnSubscribe.Text = "取消";
+            this.btnUnSubscribe.UseVisualStyleBackColor = true;
+            this.btnUnSubscribe.Click += new System.EventHandler(this.btnUnSubscribe_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -275,7 +291,6 @@
         private Panel panel1;
         private Panel panel2;
         private Button btnSendMessage;
-        private Button btnSubscribe;
         private TextBox textSendMassage;
         private TextBox textKey;
         private Label label6;
@@ -291,5 +306,7 @@
         private TextBox textIP;
         private Label label1;
         private RichTextBox rtBoxLog;
+        private Button btnUnSubscribe;
+        private Button btnSubscribe;
     }
 }
