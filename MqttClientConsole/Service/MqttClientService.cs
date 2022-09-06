@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MqttClientConsole
+namespace MqttClientConsole.Service
 {
     public class MqttClientService
     {

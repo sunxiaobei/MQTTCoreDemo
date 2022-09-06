@@ -11,7 +11,7 @@ using MQTTnet.Server;
 
 namespace MqttClientWinForms.Service
 {
-    public class MqttClient
+    public class MqttClientService
     {
         public delegate void LogEventArg(string message);
 
@@ -32,7 +32,8 @@ namespace MqttClientWinForms.Service
             var optionsBuilder = new MqttClientOptionsBuilder()
                 .WithTcpServer(ip, port) // 要访问的mqtt服务端的 ip 和 端口号
                 .WithCredentials(userName, userPwd) // 要访问的mqtt服务端的用户名和密码
-                .WithClientId(Guid.NewGuid().ToString().Substring(0, 10).Replace("-", "")) // 设置客户端id
+                //.WithClientId(Guid.NewGuid().ToString().Substring(0, 10).Replace("-", "")) // 设置客户端id
+                .WithClientId("testclient03") // 设置客户端id
                 .WithCleanSession()
                 .WithTls(new MqttClientOptionsBuilderTlsParameters
                 {

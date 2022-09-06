@@ -3,7 +3,7 @@ using MQTTnet.Protocol;
 using MQTTnet.Server;
 using System.Text;
 
-namespace MqttDemo
+namespace MqttDemo.Service
 {
     public class MqttService
     {

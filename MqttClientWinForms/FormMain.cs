@@ -14,7 +14,7 @@ namespace MqttClientWinForms
 {
     public partial class FormMain : Form
     {
-        MqttClient _mqttClient { get; set; }
+        MqttClientService _mqttClient { get; set; }
 
         bool _isConnect = false;
 
@@ -46,7 +46,7 @@ namespace MqttClientWinForms
 
             if (_mqttClient == null)
             {
-                _mqttClient = new MqttClient();
+                _mqttClient = new MqttClientService();
             }
             _mqttClient.LogEvent += MqttLog;
 

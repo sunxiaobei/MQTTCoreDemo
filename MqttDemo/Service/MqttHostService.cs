@@ -3,7 +3,7 @@ using MQTTnet;
 using MQTTnet.Protocol;
 using System.Text;
 
-namespace MqttDemo
+namespace MqttDemo.Service
 {
     public class MqttHostService : IHostedService, IDisposable
     {
@@ -71,7 +71,7 @@ namespace MqttDemo
         private Task _mqttServer_ValidatingConnectionAsync(ValidatingConnectionEventArgs arg)
         {
             arg.ReasonCode = MqttConnectReasonCode.Success;
-            if ((arg.Username ?? string.Empty) != "admin" || (arg.Password ?? String.Empty) != "123456")
+            if ((arg.Username ?? string.Empty) != "admin" || (arg.Password ?? string.Empty) != "123456")
             {
                 arg.ReasonCode = MqttConnectReasonCode.Banned;
                 Console.WriteLine($"ValidatingConnectionAsync：客户端ID=【{arg.ClientId}】用户名或密码验证错误 ");

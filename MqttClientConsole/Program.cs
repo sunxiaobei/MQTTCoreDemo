@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using MqttClientConsole;
+using MqttClientConsole.Service;
+
 Console.WriteLine("Hello, World! it's Client2");
 
 MqttClientService mqttClientService = new MqttClientService();
