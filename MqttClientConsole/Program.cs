@@ -6,3 +6,7 @@ MqttClientService mqttClientService = new MqttClientService();
 mqttClientService.MqttClientStart();
 
 Console.ReadLine();
+
+mqttClientService.Publish("Hello, Client1");
+
+Console.ReadLine();

@@ -10,7 +10,7 @@ namespace MqttDemo
         public static MqttServer _mqttServer { get; set; }
 
         /// <summary>
-        /// 发布消息
+        /// 消息推送
         /// </summary>
         /// <param name="data"></param>
         public static void PublishData(string data)
