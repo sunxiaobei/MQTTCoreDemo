@@ -9,7 +9,7 @@ namespace MqttClientWebAPI.Controllers
     public class TestMqttClientController : ControllerBase
     {
         /// <summary>
-        /// 服务端发送消息
+        /// 客户端发送消息
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>

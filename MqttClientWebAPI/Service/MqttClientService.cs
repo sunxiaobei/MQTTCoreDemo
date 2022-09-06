@@ -18,10 +18,22 @@ namespace MqttClientWebAPI.Service
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
+            MqttClientConnect("127.0.0.1", 10086, "admin", "123456");
+
+            return Task.CompletedTask;
+        }
+
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            return Task.CompletedTask;
+        }
+
+        public void MqttClientConnect(string ip, int port, string userName, string userPwd)
+        {
             var optionsBuilder = new MqttClientOptionsBuilder()
-                .WithTcpServer("127.0.0.1", 10086) // 要访问的mqtt服务端的 ip 和 端口号
-                .WithCredentials("admin", "123456") // 要访问的mqtt服务端的用户名和密码
-                .WithClientId("testclient04") // 设置客户端id
+                .WithTcpServer(ip, port) // 要访问的mqtt服务端的 ip 和 端口号
+                .WithCredentials(userName, userPwd) // 要访问的mqtt服务端的用户名和密码
+                .WithClientId(Guid.NewGuid().ToString().Substring(0, 10).Replace("-", "")) // 设置客户端id
                 .WithCleanSession()
                 .WithTls(new MqttClientOptionsBuilderTlsParameters
                 {
@@ -36,14 +48,8 @@ namespace MqttClientWebAPI.Service
             MqttClient._mqttClient.ApplicationMessageReceivedAsync += _mqttClient_ApplicationMessageReceivedAsync; // 收到消息事件
 
             MqttClient._mqttClient.ConnectAsync(clientOptions); // 创建连接
-            
-            return Task.CompletedTask;
         }
 
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            return Task.CompletedTask;
-        }
 
         /// <summary>
         /// 客户端连接关闭事件
