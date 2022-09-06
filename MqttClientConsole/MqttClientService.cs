@@ -62,9 +62,8 @@ namespace MqttClientConsole
             // 2: 保证每条消息仅由预期的收件人接收一次。级别2是最安全和最慢的服务质量级别，保证由发送方和接收方之间的至少两个请求/响应（四次握手）。
             _mqttClient.SubscribeAsync("topic_01", MqttQualityOfServiceLevel.AtLeastOnce);
 
-            _mqttClient.UnsubscribeAsync("topic_01");  // 取消订阅
-
-            _mqttClient.SubscribeAsync("topic_01", MqttQualityOfServiceLevel.AtLeastOnce);
+            //_mqttClient.UnsubscribeAsync("topic_02");  // 取消订阅
+            //_mqttClient.SubscribeAsync("topic_02", MqttQualityOfServiceLevel.AtLeastOnce); // 订阅消息
 
             return Task.CompletedTask;
         }
@@ -88,7 +87,7 @@ namespace MqttClientConsole
         {
             var message = new MqttApplicationMessage
             {
-                Topic = "topic_02",
+                Topic = "topic_01",
                 Payload = Encoding.Default.GetBytes(data),
                 QualityOfServiceLevel = MqttQualityOfServiceLevel.AtLeastOnce,
                 Retain = true  // 服务端是否保留消息。true为保留，如果有新的订阅者连接，就会立马收到该消息。
